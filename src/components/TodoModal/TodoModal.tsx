@@ -3,6 +3,7 @@ import { Loader } from '../Loader';
 import { Todo } from '../../types/Todo';
 import { getUser } from '../../api';
 import { User } from '../../types/User';
+import classNames from 'classnames';
 
 type Props = {
   selectedTodo: Todo;
@@ -61,11 +62,14 @@ const TodoModalComponent: React.FC<Props> = ({
                 </p>
 
                 <p className="block" data-cy="modal-user">
-                  {selectedTodo.completed ? (
-                    <strong className="has-text-success">Done</strong>
-                  ) : (
-                    <strong className="has-text-danger">Planned</strong>
-                  )}
+                  <strong
+                    className={classNames({
+                      'has-text-success': selectedTodo?.completed,
+                      'has-text-danger': !selectedTodo?.completed,
+                    })}
+                  >
+                    {selectedTodo?.completed ? 'Done' : 'Not done'}
+                  </strong>
 
                   {' by '}
 
