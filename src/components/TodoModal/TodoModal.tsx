@@ -18,12 +18,14 @@ const TodoModalComponent: React.FC<Props> = ({
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setUser(null);
+    setError('');
     setLoading(true);
     getUser(selectedTodo.userId)
       .then(setUser)
       .catch((er: Error) => setError(er.message || 'Something went wrong!'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [selectedTodo]);
 
   return (
     <div className="modal is-active" data-cy="modal">

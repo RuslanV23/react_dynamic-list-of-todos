@@ -49,6 +49,7 @@ export const App: React.FC = () => {
   }, [query, filterStatus, todos]);
 
   useEffect(() => {
+    setError('');
     setLoading(true);
     getTodos()
       .then(setTodos)
