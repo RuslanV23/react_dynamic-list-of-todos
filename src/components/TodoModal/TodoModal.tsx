@@ -9,7 +9,7 @@ type Props = {
   onCloseTodoModal: () => void;
 };
 
-export const TodoModal: React.FC<Props> = ({
+const TodoModalComponent: React.FC<Props> = ({
   selectedTodo,
   onCloseTodoModal,
 }) => {
@@ -77,3 +77,5 @@ export const TodoModal: React.FC<Props> = ({
     </div>
   );
 };
+
+export const TodoModal = React.memo(TodoModalComponent);

@@ -7,7 +7,7 @@ type Props = {
   selectedTodo: Todo | null;
 };
 
-export const TodoList: React.FC<Props> = ({
+const TodoListComponent: React.FC<Props> = ({
   todos,
   onShowTodoModal,
   selectedTodo,
@@ -149,3 +149,5 @@ export const TodoList: React.FC<Props> = ({
     </tbody>
   </table>
 );
+
+export const TodoList = React.memo(TodoListComponent);
